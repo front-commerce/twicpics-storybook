@@ -1,70 +1,164 @@
-# Getting Started with Create React App
+## Getting Started
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. Install the dependencies:
 
-## Available Scripts
+    ```bash
+    npm install
+    ```
 
-In the project directory, you can run:
+2. Run the test:
 
-### `npm start`
+    ```bash
+    npm run test
+    ```
+## Issues
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When running tests the storybook seems to fail for the [TwicPics component](https://github.com/front-commerce/twicpics-storybook/blob/main/src/stories/TwicPics.stories.js).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+   FAIL  src/stories/storybook.test.js
+  ● Console
 
-### `npm test`
+    console.warn
+      twicpics-components ResizeObserver not found
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      1 | import React from "react";
+      2 | import PropTypes from "prop-types";
+    > 3 | import { installTwicPics, TwicImg } from "@twicpics/components/react";
+        | ^
+      4 |
+      5 | import "./TwicPics.css";
+      6 |
 
-### `npm run build`
+      at focus (node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/_/utils.ts:40:42)
+      at Object.<anonymous> (node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/react/factory.tsx:37:5)
+      at Object.<anonymous> (src/stories/TwicPics.jsx:3:1)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    console.error
+      Error: Uncaught [TypeError: Object.defineProperty called on non-object]
+          at reportException (/User/Projects/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+          at innerInvokeEventListeners (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+          at invokeEventListeners (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+          at HTMLUnknownElementImpl._dispatch (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+          at HTMLUnknownElementImpl.dispatchEvent (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+          at HTMLUnknownElement.dispatchEvent (/User/Projects/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+          at Object.invokeGuardedCallbackDev (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11440:16)
+          at invokeGuardedCallback (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11499:31)
+          at commitRootImpl (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14172:9)
+          at unstable_runWithPriority (/User/Projects/node_modules/scheduler/cjs/scheduler.development.js:468:12) TypeError: Object.defineProperty called on non-object
+          at Function.defineProperty (<anonymous>)
+          at Object.setWrapper (/User/Projects/node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/_/placeholder.ts:21:34)
+          at n.componentDidMount (/User/Projects/node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/react/factory.tsx:111:13)
+          at commitLifeCycles (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11782:24)
+          at commitLayoutEffects (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14443:7)
+          at HTMLUnknownElement.callCallback (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11391:14)
+          at HTMLUnknownElement.callTheUserObjectsOperation (/User/Projects/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+          at innerInvokeEventListeners (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+          at invokeEventListeners (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+          at HTMLUnknownElementImpl._dispatch (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+          at HTMLUnknownElementImpl.dispatchEvent (/User/Projects/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+          at HTMLUnknownElement.dispatchEvent (/User/Projects/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+          at Object.invokeGuardedCallbackDev (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11440:16)
+          at invokeGuardedCallback (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11499:31)
+          at commitRootImpl (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14172:9)
+          at unstable_runWithPriority (/User/Projects/node_modules/scheduler/cjs/scheduler.development.js:468:12)
+          at runWithPriority (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2486:10)
+          at commitRoot (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14011:3)
+          at performSyncWorkOnRoot (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13440:3)
+          at /User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2537:26
+          at unstable_runWithPriority (/User/Projects/node_modules/scheduler/cjs/scheduler.development.js:468:12)
+          at runWithPriority (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2486:10)
+          at flushSyncCallbackQueueImpl (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2532:9)
+          at flushSyncCallbackQueue (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2519:3)
+          at scheduleUpdateOnFiber (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13004:9)
+          at updateContainer (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:16454:3)
+          at create (/User/Projects/node_modules/react-test-renderer/cjs/react-test-renderer.development.js:17149:3)
+          at getRenderedTree (/User/Projects/node_modules/@storybook/addon-storyshots/dist/ts3.9/frameworks/react/renderTree.js:24:16)
+          at /User/Projects/node_modules/@storybook/addon-storyshots/dist/ts3.9/test-bodies.js:11:22
+          at Object.<anonymous> (/User/Projects/node_modules/@storybook/addon-storyshots/dist/ts3.9/api/snapshotsTestsTemplate.js:47:20)
+          at Promise.then.completed (/User/Projects/node_modules/jest-circus/build/utils.js:391:28)
+          at new Promise (<anonymous>)
+          at callAsyncCircusFn (/User/Projects/node_modules/jest-circus/build/utils.js:316:10)
+          at _callCircusTest (/User/Projects/node_modules/jest-circus/build/run.js:218:40)
+          at processTicksAndRejections (node:internal/process/task_queues:96:5)
+          at _runTest (/User/Projects/node_modules/jest-circus/build/run.js:155:3)
+          at _runTestsForDescribeBlock (/User/Projects/node_modules/jest-circus/build/run.js:66:9)
+          at _runTestsForDescribeBlock (/User/Projects/node_modules/jest-circus/build/run.js:60:9)
+          at _runTestsForDescribeBlock (/User/Projects/node_modules/jest-circus/build/run.js:60:9)
+          at run (/User/Projects/node_modules/jest-circus/build/run.js:25:3)
+          at runAndTransformResultsToJestFormat (/User/Projects/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+          at jestAdapter (/User/Projects/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+          at runTestInternal (/User/Projects/node_modules/jest-runner/build/runTest.js:389:16)
+          at runTest (/User/Projects/node_modules/jest-runner/build/runTest.js:475:34)
+          at Object.worker (/User/Projects/node_modules/jest-runner/build/testWorker.js:133:12)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    console.error
+      The above error occurred in the <n> component:
+      
+          at n (/User/Projects/node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/_/placeholder.ts:85:21)
+          at TwicPics (/User/Projects/src/stories/TwicPics.jsx:13:21)
+          at div
+          at storyFn
+      
+      Consider adding an error boundary to your tree to customize error handling behavior.
+      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
 
-### `npm run eject`
+      at logCapturedError (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:10989:23)
+      at update.callback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11022:5)
+      at callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:3662:12)
+      at commitUpdateQueue (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:3683:9)
+      at commitLifeCycles (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11855:11)
+      at commitLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14443:7)
+      at HTMLUnknownElement.callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11391:14)
+      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  ● Storyshots › Example/TwicPics › Default
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    TypeError: Object.defineProperty called on non-object
+        at Function.defineProperty (<anonymous>)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+      at Object.setWrapper (node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/_/placeholder.ts:21:34)
+      at n.componentDidMount (node_modules/@twicpics/components/react/https:/raw.githubusercontent.com/twicpics/components/0.7.0/src/react/factory.tsx:111:13)
+      at commitLifeCycles (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11782:24)
+      at commitLayoutEffects (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14443:7)
+      at HTMLUnknownElement.callCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11391:14)
+      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+      at Object.invokeGuardedCallbackDev (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11440:16)
+      at invokeGuardedCallback (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:11499:31)
+      at commitRootImpl (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14172:9)
+      at unstable_runWithPriority (node_modules/scheduler/cjs/scheduler.development.js:468:12)
+      at runWithPriority (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2486:10)
+      at commitRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:14011:3)
+      at performSyncWorkOnRoot (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13440:3)
+      at node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2537:26
+      at unstable_runWithPriority (node_modules/scheduler/cjs/scheduler.development.js:468:12)
+      at runWithPriority (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2486:10)
+      at flushSyncCallbackQueueImpl (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2532:9)
+      at flushSyncCallbackQueue (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:2519:3)
+      at scheduleUpdateOnFiber (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:13004:9)
+      at updateContainer (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:16454:3)
+      at create (node_modules/react-test-renderer/cjs/react-test-renderer.development.js:17149:3)
+      at getRenderedTree (node_modules/@storybook/addon-storyshots/dist/ts3.9/frameworks/react/renderTree.js:24:16)
+      at node_modules/@storybook/addon-storyshots/dist/ts3.9/test-bodies.js:11:22
+      at Object.<anonymous> (node_modules/@storybook/addon-storyshots/dist/ts3.9/api/snapshotsTestsTemplate.js:47:20)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Test Suites: 2 failed, 2 total
+Tests:       1 failed, 1 total
+Snapshots:   0 total
+Time:        1.504 s, estimated 2 s
+Ran all test suites.
+```
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
